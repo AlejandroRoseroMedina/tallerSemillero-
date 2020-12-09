@@ -20,5 +20,17 @@ public class ServicioEstudiante extends ServicioBase{
 		
 	
 	}
+	
+	public void actualizarEstudiante(Estudiante estu) throws BDDException, SQLException{
+	
+		abrirConexion();
+		System.out.println("Actualizando estudiante: "+estu);
+		Statement stmt = null;
+		stmt = getConexion().createStatement();
+		String sql = "update estudiantes set nombre='"+estu.getNombre()+"', apellido='"+estu.getApellido()+"' where id="+estu.getId()+"";
+		System.out.println("Script: "+sql);
+		stmt.executeUpdate(sql);
+		cerrarConexion();
+	}
 
 }
