@@ -8,15 +8,22 @@ import com.clearminds.arm.excepciones.BDDException;
 
 public class ServicioEstudiante extends ServicioBase{
 	
-	public void insertarEstudiante(Estudiante estu) throws BDDException, SQLException{
+	public void insertarEstudiante(Estudiante estu) throws BDDException{
 		abrirConexion();
 		System.out.println("Insertando estudiante: "+estu);
 		Statement stmt = null;
-		stmt = getConexion().createStatement();
-		String sql = "insert into estudiantes(nombre,apellido) values('"+estu.getNombre()+"', '"+estu.getApellido()+"')";
-		System.out.println("Script: "+sql);
-		stmt.executeUpdate(sql);
-		cerrarConexion();
+		try {
+						stmt = getConexion().createStatement();
+			String sql = "insert into estudiantes(nombre,apellido) values('"+estu.getNombre()+"', '"+estu.getApellido()+"')";
+			System.out.println("Script: "+sql);
+			stmt.executeUpdate(sql);
+			cerrarConexion();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new BDDException("");
+		}
+		
 		
 	
 	}

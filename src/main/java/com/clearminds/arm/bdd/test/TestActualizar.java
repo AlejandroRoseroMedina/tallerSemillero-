@@ -13,7 +13,7 @@ public class TestActualizar {
 
 		ServicioEstudiante srv = new ServicioEstudiante();
 		try {
-			srv.actualizarEstudiante(new Estudiante("Rosa","Ramirez",2));
+			srv.actualizarEstudiante(new Estudiante("mona","rosa",5));
 		} catch (BDDException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

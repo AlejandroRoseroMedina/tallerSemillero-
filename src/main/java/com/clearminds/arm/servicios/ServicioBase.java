@@ -9,7 +9,7 @@ import com.clearminds.arm.excepciones.BDDException;
 public class ServicioBase {
 	private Connection conexion;
 	
-	public void abrirConexion() throws BDDException, SQLException{
+	public void abrirConexion() throws BDDException{
 		conexion = ConexionBDD.obtenerConexion();
 	}
 	
